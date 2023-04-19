@@ -1,0 +1,13 @@
+version: '3.9'
+
+services:
+  app:
+    container_name: recipebook_api
+    build:
+      dockerfile: Dockerfile
+    volumes:
+      - ./backend:/recipebook_api/backend
+    ports:
+      - 8000:8000
+    restart: always
+    command: bash -c "cd ./recipebook_api/backend && uvicorn main:app --reload"
